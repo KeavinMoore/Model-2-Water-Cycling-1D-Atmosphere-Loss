@@ -1,0 +1,527 @@
+
+%% Beginning of file 'sample63.tex'
+%%
+%% Modified 2019 June
+%%
+%% This is a sample manuscript marked up using the
+%% AASTeX v6.3 LaTeX 2e macros.
+%%
+%% AASTeX is now based on Alexey Vikhlinin's emulateapj.cls 
+%% (Copyright 2000-2015).  See the classfile for details.
+
+%% AASTeX requires revtex4-1.cls (http://publish.aps.org/revtex4/) and
+%% other external packages (latexsym, graphicx, amssymb, longtable, and epsf).
+%% All of these external packages should already be present in the modern TeX 
+%% distributions.  If not they can also be obtained at www.ctan.org.
+
+%% The first piece of markup in an AASTeX v6.x document is the \documentclass
+%% command. LaTeX will ignore any data that comes before this command. The 
+%% documentclass can take an optional argument to modify the output style.
+%% The command below calls the preprint style which will produce a tightly 
+%% typeset, one-column, single-spaced document.  It is the default and thus
+%% does not need to be explicitly stated.
+%%
+%%
+%% using aastex version 6.3
+\documentclass{aastex63}
+
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra math symbols
+\usepackage{capt-of}
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+
+%% Reintroduced the \received and \accepted commands from AASTeX v5.2
+%\received{June 1, 2019}
+%\revised{January 10, 2019}
+%\accepted{\today}
+%% Command to document which AAS Journal the manuscript was submitted to.
+%% Adds "Submitted to " the argument.
+\submitjournal{ApJ}
+
+\shorttitle{Water Loss from a 1-D Atmosphere}
+\shortauthors{Moore \& Cowan}
+
+\graphicspath{{./}{figures/}}
+
+\begin{document}
+
+\title{Keeping M-Earths Habitable in the Face of Atmospheric Loss from a 1-D Atmosphere by Sequestering Water in the Mantle}
+
+\correspondingauthor{Keavin Moore}
+\email{keavin.moore@mail.mcgill.ca}
+
+\author{Keavin Moore}
+\affiliation{Department of Earth \& Planetary Sciences, McGill University, 3450 rue University, Montr\'{e}al, QC H3A 0E8, Canada}
+\affiliation{McGill Space Institute, McGill University, 3550 rue University, Montr\'{e}al, QC H3A 2A7, Canada}
+
+\author{Nicolas Cowan}
+\affiliation{Department of Earth \& Planetary Sciences, McGill University, 3450 rue University, Montr\'{e}al, QC H3A 0E8, Canada}
+\affiliation{McGill Space Institute, McGill University, 3550 rue University, Montr\'{e}al, QC H3A 2A7, Canada}
+\affiliation{Department of Physics, McGill University, 3600 rue University, Montr\'{e}al, QC H3A 2T8, Canada}
+
+%\begin{abstract}
+%ABSTRACT
+%\end{abstract}
+
+%\keywords{ADD KEYWORDS}
+
+\section{Model Inputs/Notes} \label{sec:notes}
+
+Lots more notes in my notebook -- come back when actually writing up the paper.
+
+\begin{itemize}
+    \item Which XUV model to use? \citep{ribas05} seems disfavoured; uses solar analogs to model XUV, but does not model exact ionizing flux -- XUV range is {\bf 0.1 - 120 nm}. \citep{howe20} find a better estimate of XUV flux, using \citep{ribas05} bins, but also using solar analogs. \citep{melbourne20} predicts UV emission from M dwarfs using Ca II and H$\alpha$ emission lines. 
+    \item \citep{fleming20}: results disfavour $t_{\mathrm{sat}} \leq 1$ Gyr from \citep{luger15}; authors suggest using {\bf $t_{\mathrm{sat}} \gtrsim 4$ Gyr} for loss from planets orbiting ultracool dwarfs
+    \item \citep{bolmont16} \& \citep{ribas16} use {\bf ``improved energy-limited escape formalism''} 
+    \item \citep{ribas17} provide a full spectrum for Proxima Centauri, from 0.7 to 30000 nm (including TOA flux on Proxima b)
+    \item {\bf Assume disk blocks XUV for until a few Myr? Assume no XUV until planet formation complete? (50-100 Myr) -- start stellar evolution from here!!!}
+    \item {\bf $\epsilon_{\mathrm{XUV}} = 0.1$} for energy-limited escape in literature (e.g., Owen \& Alvarez 2016, Bolmont et al. 2017); \citep{luger15} use $\epsilon_{\mathrm{XUV}} = 0.3$
+    \item \citep{raymond04} find planet water budgets $\sim0.1-1$ to $\sim10-100$ times that of Earth, in simulations
+    \item \citep{king20}: decline in stellar EUV much slower than X-rays; total combined XUV emission of stars moslty after saturated phase (of X-ray to bolometric luminosity); {\bf paper includes empirical relations for $L_{\mathrm{X}}/L_{\mathrm{bol}}$ and $L_{\mathrm{EUV}}/L_{\mathrm{bol}}$ separately!}
+    \item \citep{barth20}: TRAPPIST-1 e, f, g, {\bf only $3-5$\% of initial water locked in mantle after magma ocean solidification} (using a magma ocean model of VPLanet); their Figure 2 shows {\bf magma ocean solidification times for different initial water masses}
+    \item (Ribas et al.(2014)) give {\bf disk lifetimes around low-mass stars of 4.2 - 5.8 Myr -- start model after/far after this, once planet formation complete}
+    \item \citep{luger15}: {\bf A 10 Myr planet formation timescale is assumed; simulations by (Raymond et al. 2007; Lissauer et al. 2007) indicate "planets form in situ in M dwarf HZ likely to form quickly ($\sim 10$ Myr after star formation, be small ($\lesssim 0.3 M_{\oplus}$, and have water contents smaller than Earth. Planets that form beyond snow line (before disk dissipation) and quickly migrate inwards likely to have much larger water contents than Earth.}
+    \item Lebrun et al. 2013: Earth's magma ocean phase lasted for $\sim 1.5$ Myr, but likely to be much longer for terrestrial planets around M dwarfs due to tidal heating, enhanced irradiation.
+    \item Runaway greenhouse limit prevents planet for emitting more than 280 W/m$^2$ when greenhouse gases present, unless $T_{\mathrm{surf}} > 1800$ K (Goldblatt et al. 2013; Kopparapu et al. 2013)
+    \item Thick steam atmosphere can prolong magma ocean phase (which allows more oxygen to be stored in the mantle, preventing abiotic O2 buildup) \citep{barth20}
+    \item If Earth's oceans were completely vaporized, supercritical water at base ($P > 221$ bar, $T > 647$ K; e.g., \citep{pierrehumbert10}) -- {\bf pretty complicated though; involves quantum to model. Maybe just something to mention (or just let surface water exist below this huge atmosphere???} 
+    \item {\bf 1 TO  $\sim$ 270 bars (e.g., Kasting 1988; Luger \& Barnes 2015), above critical point!!!} 
+    \item \citep{manabe64} use critical lapse rate for troposphere, based on observations, to calculate thermal equilibrium using convective adjustment; {\bf $6.5^{\circ}$/km, or dry adiabatic lapse rate $10^{\circ}$/km}
+    \item \citep{manabe64}: ozone important for a clear-cut tropopause \& (realistic) temperature in stratosphere --> without ozone, stratosphere too cool; little effect on $T_{\mathrm{surf}}$, though.
+    \item \citep{nakajima92}: relative humidity is defined as ``the ratio of partial pressure of water vapour to equilibrium vapour pressure of water at a given temperature''
+    \item Using 1D grey non-scattering atmosphere with RH=1, \citep{hara20} find for $T_{\mathrm{surf}} > 350 K$, mole fraction of condensable becomes dominant; also $T$ and $\tau$ relations become same as saturated water vapour pressure curve.
+    \item \citep{robinson12}: {\bf two simple forms of model: no solar attenuation in Section 2.6, and can calculate $\tau$ at tropopause using Equation (30); Equation (33) gives the $T$-$P$ profile for 1 attenuated SW channel -- THESE MAY BE GOOD TO TEST CODE???}
+    \item \citep{pierrehumbert10}: solar absorption important in stratosphere, particularly ozone; stratosphere is ``stratified'' -- convection/stirring ineffective or absent in that layer
+    \item \citep{tosi17} use a more complicated 1D radiative-convective model, based on Kasting et al. (1984) -- {\bf Potentially a good comparison model for when our model is done}; the authors only considered H2O \& CO2 as absorbing species, {\bf for Earth-like planet orbiting Sun -- $\lambda$ will be important for our M dwarf, since INCOMING \& OUTGOING radiation are both LONGWAVE (IR) !!!}
+    \item \citep{abe11}: ``topography allows greenhouse to remain stable beyond the flat-planet greenhouse limit, allowing for localized liquid water, even if humidity too low for rain''
+    \item \citep{abe11}: {\bf ``When stratospheric mixing ratios $>0.1$\%, hydrogen escape to space can cause 1 TO of loss in $<4.5$ Gyr''}
+    \item \citep{abe11}: {\bf Diffusion-limited flux assumes it is SMALLER than the energy-limited flux -- the authors find, for Dune planets, EL takes over DL for stratospheric mixing ratios $>2$\%}
+    \item \citep{abe11}: {\bf In moist greenhouse, it is unlikely that chemistry will convert H2O to H2 quickly enough \& escape likely to be energy-limited (see Eqns (4) and (5))}
+    \item \citep{abe11}: Earth could evolve into habitable Dune planet if driven by geological processes (e.g., water into mantle), but not if by H-escape during moist greenhouse (because $T_{\mathrm{surf}}$ would get too high)
+    \item \citep{kasting88} use a N2-O2-CO2 model atmosphere, without O3, since ``O3 would presumably be destroyed in a warm moist atmosphere by the by-products of water vapour photolysis'' -- {\bf NO O3 IN OUR MODEL, THEN?}
+    \item \citep{kasting88}: RH = 1 is a ``reasonable estimate for atmosphere with water as major constituent''
+    \item $A=0.05$ for a water-covered surface
+\end{itemize} 
+
+2 model cases:
+\begin{enumerate}
+    \item Hot case -- $T$-$P$ profile never intersects condensation curve (water won't condense, so should be easy to lose); well-mixed up to homopause; above homopause, diffusion of H through O. {\bf This case is similar to \citep{luger15}}
+    \item Cool case -- ``cold trap'' in $T$-$P$ profile; ``convective overshoot'' of water from troposphere into stratosphere. {\bf This will be parameterized below, using Yi's suggestions.}
+\end{enumerate}
+
+Altitudes required for these calculations:
+\begin{itemize}
+    \item tropopause height (from troposphere adiabat \& isothermal + optically thin stratosphere)
+    \item exobase height (based on atmospheric constituents)
+    \item homopause height --- {\bf \citep{abe11} find this as the height where molecular diffusion \& Eddy mixing are equal -- below homopause, well-mixed and vertical transport is relatively fast}
+    \item height energy is deposited (depends on molecule); deposited where $\tau = 1$, {\bf need $\tau(\lambda)$ for XUV}
+\end{itemize}
+
+\section{Model Equations} \label{sec:eqns}
+
+\subsection{Combined P- \& T-dependent Cycling Rates}
+
+Degassing: 
+\begin{equation}
+    w_{\uparrow}(P,T) = x \rho_{\mathrm{m}} d_{\mathrm{melt}} f_{\mathrm{degas}}(P) f_{\mathrm{melt}}(T)
+\end{equation}
+where,
+\begin{equation}
+    f_{\mathrm{degas}}(P) = \min \left[ f_{\mathrm{degas,\oplus}} \left(\frac{P}{P_\oplus} \right)^{-\mu}, ~1 \right]
+\end{equation}
+and
+\begin{equation}
+    f_{\mathrm{melt}}(T) = \left(\frac{T - (T_{\mathrm{sol,dry}} - Kx^{\gamma})}{T_{\mathrm{liq,dry}} - T_{\mathrm{sol,dry}}} \right)^{\theta}
+\end{equation} \\
+
+Regassing:
+\begin{equation}
+    w_{\downarrow}(P,T) = x_{\mathrm{h}} \rho_{\mathrm{c}} \chi_{\mathrm{r}} d_{\mathrm{h}}(P,T)
+\end{equation}
+where,
+\begin{equation}
+    d_{\mathrm{h}}(P,T) = \min \left[ h^{(1-3\beta)} (T - T_{\mathrm{s}})^{-(1+\beta)} (T_{\mathrm{serp}} - T_{\mathrm{s}}) \left(\frac{\eta(T,x) \kappa \mathrm{Ra}_{\mathrm{crit}}}{\alpha \rho_{\mathrm{m}} g} \right)^\beta \left(\frac{P}{P_\oplus} \right)^\sigma, ~d_{\mathrm{b}} \right]
+\end{equation}
+{\bf ... Can we still use $P_\oplus$, as long as we don't change the planet's mass yet? (Or else scale seafloor accordingly to larger planets?)}
+
+\subsection{Stellar Evolution \& Atmospheric Loss}
+
+Stellar XUV evolution from \citep{luger15}, originally from \citep{ribas05}:
+\[
+    \frac{L_{\mathrm{XUV}}}{L_{\mathrm{bol}}} = 
+\begin{cases}
+    f_0, & t \leq t_0\\
+    f_0 \left(\frac{t}{t_0} \right)^\beta,  & t > t_0
+\end{cases}
+\]
+where $f_0 = 10^{-3}$ is the saturation fraction, $t_0 = 1$ Gyr is the saturation time, and $\beta = -1.23$ ($\beta = -1.18$ from \citet{king20} for early M). \\
+
+Energy-limited escape formalism, Equation (2) of \citep{luger15} {\bf (note that the authors assume a pure H2O atmosphere that can be broken into H \& O)}:
+\begin{equation}
+    \Dot{M}_{\mathrm{EL}} = \frac{\epsilon_{\mathrm{XUV}} \pi F_{\mathrm{XUV}} R_{\mathrm{p}} R_{\mathrm{XUV}}^2}{G M_{\mathrm{p}} K_{\mathrm{tide}}}
+\end{equation}
+where $\epsilon_{\mathrm{XUV}} = 0.3$ is the XUV absorption effiency (range tested, 0.15-0.3); $F_{\mathrm{XUV}}$ is the XUV flux ($F_{\mathrm{XUV}} = L_{\mathrm{XUV}} / (4 \pi a^2)$). $R_{\mathrm{XUV}} = R_{\mathrm{p}}$ taken for simplicity, and $K_{\mathrm{tide}} = 1$ since it is of order unity.
+
+Following the diffusion-limited flux estimates of \citet{luger15} (specifically, their Equation (13)), we can define the diffusion-limited escape mass flux of hydrogen atoms as:
+\begin{equation}
+    \Dot{M}_{\mathrm{DL}} = m_{\mathrm{H}} \pi R_{\mathrm{p}}^2 \frac{b g (m_{\mathrm{O}} - m_{\mathrm{H}})}{k_{\mathrm{B}} T (1 + X_{\mathrm{O}}/X_{\mathrm{H}})}
+\end{equation}
+
+\subsection{1D Atmospheric Structure}
+
+{\bf An optically thin stratosphere is isothermal in the absence of solar absorption \citep{pierrehumbert10}.} We are then going to use an isothermal stratosphere -- that means that $T_{\mathrm{skin}} = T_{\mathrm{strat}} = T_{\mathrm{tp}}$, and we can find the tropospheric structure up to the tropopause (including tropospheric height, $z_{\mathrm{tp}}$ or $P_{\mathrm{tp}}$) given a $T_{\mathrm{surf}}$ and an adiabat. For an isothermal stratosphere, the temperature is defined as,
+\begin{equation}
+    T_{\mathrm{strat}} = T_{\mathrm{skin}} = \left( \frac{1}{2} \right)^{1/4} T_{\mathrm{eff}} = \left( \frac{1}{2} \right)^{1/4} \left( \frac{L_{\mathrm{bol}} (1-A_{\mathrm{p}})}{16 \pi \sigma a_{\mathrm{s-p}}^2} \right)^{1/4}
+\end{equation}
+where $L_{\mathrm{bol}}$ is the bolometric luminosity of the host star (stellar evolution from \citep{baraffe15}), $A_{\mathrm{p}}$ is the planetary albedo ($=0.31$ for Earth; {\bf $=0.33$ currently coded}), $\sigma$ is the Stefan-Boltzmann constant, and $a_{\mathrm{s-p}}$ is the orbital distance of the planet; {\bf currently $a_{\mathrm{s-p}} = 0.06$ AU is coded}. {\bf We can thus find tropopause height given $T_{\mathrm{surf}}$, $T_{\mathrm{skin}}$, and an adiabat.}
+
+{\bf When $T_{\mathrm{skin}} > 273$ K, moist greenhouse onset} -- let's assume this is the same limit as the runaway greenhouse limit. {\bf At this point, no regassing, but degassing continues.} {\bf Alternatively, we could say runaway greenhouse limit not reached -- moist atmosphere, but still oceans at the surface.} \\
+
+Absorption cross-section of $\mathrm{H_2O}$ for XUV light:
+\begin{equation}
+    \int_{0}^{\lambda_{\mathrm{max}}} \sigma(\lambda) \,d\lambda = \sigma
+\end{equation}
+where $\lambda_{\mathrm{max}}$ is the maximum $\lambda$ that can dissociate water. {\bf Absorption spectrum from HITRAN 1992/2008/2020? Probably 2008 for $\mathrm{H_2O}$; 2020 available early next year.}
+
+{\bf I am currently taking a constant value for $\kappa_{\mathrm{abs}} \approx 0.000188$, calculated using Earth values,}
+\begin{equation}
+    \kappa_{\mathrm{abs,\oplus}} = \frac{g_\oplus}{P_{\mathrm{surf,\oplus}} \exp{(-z_{\mathrm{eff,\oplus}}/H_\oplus)}}
+\end{equation}
+where $z_{\mathrm{eff,\oplus}} = (T_{\mathrm{surf,\oplus}} - T_{\mathrm{eff,\oplus}}/\Gamma_{\mathrm{trop,\oplus}}$, and the following values are used: $T_{\mathrm{eff,\oplus}} = 252$ K; $T_{\mathrm{surf,\oplus}} = 288$ K; $P_{\mathrm{surf,\oplus}} = 1$ bar; $H_\oplus = 8.5$ km; $Gamma_{\mathrm{trop,\oplus}} = 6.5$ K/km. {\bf There are some recent papers that discuss it more carefully (e.g., Wei et al. (2019).}
+
+For 1D atmosphere: start from $P/g = 0$ (at TOA) and go down from there.
+\begin{equation}
+    \tau = \frac{P}{g} \kappa_\mathrm{abs} = 1 ~\mathrm{or}~ \frac{2}{3}
+\end{equation}
+Solving for $P = P_{\mathrm{eff}}$, the pressure at the emitting level in the atmosphere:
+\begin{equation}
+    P_{\mathrm{eff}} = \tau\frac{g}{\kappa_\mathrm{abs}}
+\end{equation}
+With this value in hand, we can calculate the effective emitting altitude, 
+\begin{equation}
+    z_{\mathrm{eff}} = H \ln \frac{P_{\mathrm{surf}}}{P_{\mathrm{eff}}}
+\end{equation}
+The dry adiabat is given by $\Gamma = -g/c_{p,n}$, where $c_{p,n}$ is the specific heat capacity of the non-condensible ({\bf note: since we use a pure H2O atmosphere, we should be using the specific heat capacity of H2O!!!}). Now, we can follow the dry adiabat DOWN from $T_{\mathrm{eff}}$ to determine $T_{\mathrm{surf}}$:
+\begin{equation}
+    T_{\mathrm{surf}} = T_{\mathrm{eff}} - (\Gamma z_{\mathrm{eff}})
+\end{equation}
+We can also follow the dry adiabat UP to determine the altitude at which $T = T_{\mathrm{strat}}$, $z_{\mathrm{strat}}$:
+\begin{equation}
+    z_{\mathrm{strat}} = \frac{T_{\mathrm{strat}} - T_{\mathrm{eff}}}{\Gamma} + z_{\mathrm{eff}}
+\end{equation}
+{\bf This 1-D $T$-$P$ profile for a dry adiabatic troposphere and isothermal stratosphere can then be stitched together using the above calculated values.} \\
+
+\citep{kasting88} use the same model as Kasting \& Ackerman (1986), and instead define the tropospheric relative humidity as,
+\begin{equation}
+    \mathrm{RH}(z) = r = r_0 \left[\frac{(P/P_{\mathrm{surf}}) - 0.02}{1-0.02} \right]^\Omega
+\end{equation}
+where $r_0 = 0.8$ is the surface humidity and,
+\begin{equation}
+    \Omega =  1 - \frac{f_{\mathrm{sat}}(\mathrm{H_2O}) - f_{\mathrm{p}}}{0.1 - f_{\mathrm{p}}}
+\end{equation}
+Here, $0 \leq \Omega \leq 1$, $f_{\mathrm{sat}}(\mathrm{H_2O}) = P_{\mathrm{sat}}(\mathrm{H_2O})/P_{\mathrm{surf}}$ is saturation $\mathrm{H_2O}$ mixing ratio at surface, and $f_{\mathrm{p}} = 0.0166$ is the value of $f_{\mathrm{sat}}(\mathrm{H_2O}O)$ for the current atmosphere at 288 K. {\bf Further, $\Omega = 1$ for $f_{\mathrm{sat}}(\mathrm{H_2O}) < f_{\mathrm{p}}$ (which reduces to the Equation from \citep{manabe67}), and $\Omega = 0$ for $f_{\mathrm{sat}}(\mathrm{H_2O})>0.1$ (i.e., troposphere 80\% saturated throughout).}
+
+From \citet{nakajima92}: Using Clausius-Clapeyron, the saturation water vapour pressure $P^*$ is,
+\begin{equation}
+    P_{\mathrm{sat}}(T(z)) = P^*(T(z)) = P_0^* \exp \left(- \frac{l}{RT(z)} \right)
+\end{equation}
+where $P_0^* = 1.4 \times 10^{11}$ Pa is a constant, $l = 43655$ J/mol is latent heat of condensable, and $R$ is the gas constant. \\
+
+Finally, the vertical profile of the partial pressure of H2O in the atmosphere can be determined,
+\begin{equation}
+    P_{\mathrm{H_{2}O}}(z) = P_{\mathrm{sat}}(z)*\mathrm{RH}(z)
+\end{equation}
+
+We can move further from this to calculate the amount of water up high. First, we can determine the density of water as a function of altitude,
+\begin{equation}
+    \rho_{\mathrm{H_2O}}(z) = \frac{P_{\mathrm{H_{2}O}}(z) m_{\mathrm{H_2O}}}{k_\mathrm{B} T(z)}
+\end{equation}
+Integrating over this profile gives [kg/m$^2$] of water {\bf using Simpson's rule \& 'avg' in scipy.integrate package},
+\begin{equation}
+    \rho_{int} = \int \rho_{\mathrm{H_2O}}(z) \mathrm{d}z
+\end{equation}
+Dividing by the density of water $\rho = 997$ kg/m$^3$ (and multiplying by 1000) gives the amount of water in 'mm precipitable water', and multiplying mm precip. by the surface area of the planet will give the {\bf total amount of water in the atmosphere, in kg.} \\
+
+While \citep{kasting88} calculate a moist adiabat, it is quite complicated, involving derivatives of vapour pressure and density ratios. {\bf Based on Fig. 1, however, the assumed vertical structures are (from surface): moist adiabat to isothermal stratosphere for moist greenhouse; dry adiabat to moist adiabat to isothermal stratosphere for runaway greenhouse.} 
+
+In fact, \citep{kasting88} set the {\bf stratospheric water mixing ratio equal to its value at the top of the convection zone (i.e., at the tropopause, since isothermal stratosphere).} The author also {\bf assumes} temperature structures of atmosphere rather than calculate them (as mentioned above, in their Fig. 1), and implicitly account for clouds in the albedo set to $A=0.22$. For this model, the author finds that {\bf below water's critical point, the atmosphere is in a moist greenhouse; above the critical point, the atmosphere is in a runaway greenhouse. Also, increaing $T_{\mathrm{surf}}$ leads to an increase in the water vapour pressure at the surface, an increase in the depth of the convection region, and an increase in the water content of the stratosphere.} 
+
+Equations (A7)-(A10) of \citep{kasting88} provide ``convenient way of treating water in most model calculations'' -- {\bf MAYBE ATTEMPT TO TEST CODE THESE, AFTER FIRST ATTEMPTS??}
+
+\subsection{Currently Unused/Uncoded Equations}
+
+While \citep{leconte13} use GCMs to study the habitability of tidally-locked or pseudosynchronous Dune planets \citep{abe11}, they do provide equations for escape flux. The energy-limited escape flux [kg m$^{-2}$ s$^{-1}$] given by their Equation (14) is,
+\begin{equation}
+    F_{\mathrm{el}} = \epsilon \frac{R_p F_{\mathrm{XUV}}}{G M_p}
+\end{equation}
+which is almost identical to that of \citep{luger15}, although the latter give the value as a {\bf mass-loss escape rate}. 
+
+The diffusion-limited escape flux of \citep{leconte13}, their Equation (15), follows \citep{abe11}, and is given by,
+\begin{equation}
+    F_{\mathrm{dl}} = f_{\mathrm{str}}(H_2) b_{\mathrm{ia}} \frac{(m_a - m_i) g}{k_B T_{\mathrm{str}}}
+\end{equation}
+where $f_{\mathrm{str}}(H_2)$ is the mixing ratio of all forms of hydrogen in the stratosphere, $m_a$ and $m_i$ are the masses of air and the considered species $i$, and $b_{\mathrm{ia}}$ is the binary diffusion coefficent for $i$ in air ($b_{\mathrm{ia}} = 1.9 \times 10^{21} (T/300 \mathrm{K})^{0.75}$ m$^{-1}$ s$^{-1}$ for H2 in air). {\bf The authors calculate the mixing ratio from total water amount in the stratosphere, or from humidity.} \\
+
+The diffusion-limited escape formalism of \citep{luger15} involves a few equations, contained in their section 2.4.2 and 2.4.3. The diffusion-limited escape flux, if oxygen becomes a major constituent of the atmosphere (i.e., not removed at same rate H is removed), defined in their Equation (13), is,
+\begin{equation}
+    F_{\mathrm{H}}^{\mathrm{diff}} = \frac{b g (m_{\mathrm{O}} - m_{\mathrm{H}})}{k T (1+X_{\mathrm{O}}/X_{\mathrm{H}})}
+\end{equation}
+where $b$ is the binary diffusion coefficient, $g$ is gravity, $m_{\mathrm{H}}$ and $m_{\mathrm{O}}$ are the mass of the hydrogen and oxygen atoms, respectively, and $X_{\mathrm{H}}$ and $X_{\mathrm{O}}$ are the mixing ratios of hydrogen and oxygen. {\bf If the hydrogen escape flux is greater than this limit, oxygen MUST escape. For planets that build up significant O in the atmosphere, the H particle escape flux is the smaller of $F_{\mathrm{H}}^{\mathrm{diff}}$ and $F_{\mathrm{H}}$ (below) and the O particle flux is 0.}
+
+The escape flux of H in the absence of O is,
+\begin{equation}
+    F_{\mathrm{H}}^{\mathrm{ref}} = \frac{\epsilon_{\mathrm{XUV}} F_{\mathrm{XUV}} R_{\mathrm{p}}}{4 G M_{\mathrm{p}} K_{\mathrm{tide}} m_{\mathrm{H}}}
+\end{equation}
+The true hydrogen flux is then given by (with some manipulation),
+\[
+    F_{\mathrm{H}} = 
+\begin{cases}
+    F_{\mathrm{H}}^{\mathrm{ref}}, & \mathrm{if}~ m_{\mathrm{c}} < m_{\mathrm{O}} \\
+    F_{\mathrm{H}}^{\mathrm{ref}} \left(1 + \frac{X_{\mathrm{O}}}{X_{\mathrm{H}}} \frac{m_{\mathrm{O}}}{m_{\mathrm{H}}} \frac{m_{\mathrm{c}} - m_{\mathrm{O}}}{m_{\mathrm{c}} - m_{\mathrm{H}}} \right), & m_{\mathrm{c}} \geq m_{\mathrm{O}}
+\end{cases}
+\]
+The crossover mass, $m_{\mathrm{c}}$, is shown to be,
+\[
+    m_{\mathrm{c}} = 
+\begin{cases}
+    m_{\mathrm{H}} + \frac{3 k T F_{\mathrm{H}}^{\mathrm{ref}}}{2 b g}, & \mathrm{if}~ F_{\mathrm{H}}^{\mathrm{ref}} < 10 b g m_{\mathrm{H}}/k T \\
+    \frac{43}{3}m_{\mathrm{H}} + \frac{k T F_{\mathrm{H}}^{\mathrm{ref}}}{6 b g}, & F_{\mathrm{H}}^{\mathrm{ref}} \geq 10 b g m_{\mathrm{H}}/k T
+\end{cases}
+\]
+This definition requires $m_{\mathrm{O}} = 16 m_{\mathrm{H}}$, $X_{\mathrm{H}} = 2/3$, $X_{\mathrm{O}} = 1/3$, and assumes all H and O are photolytically produced, and that they are dissociated quickly. 
+
+If we then allow the oxygen to be dragged along and escape, the oxygen escape flux is,
+\begin{equation}
+    F_{\mathrm{O}} = \frac{\eta}{2} F_{\mathrm{H}}
+\end{equation}
+with the escape parameter $\eta$,
+\[
+    \eta = 
+\begin{cases}
+    0, & \mathrm{if}~ x < 1\\
+    \frac{x-1}{x+8},  & x \geq 1
+\end{cases}
+\]
+where,
+\begin{equation}
+    x = \frac{k T F_{\mathrm{H}}^{\mathrm{ref}}}{10 b g m_{\mathrm{H}}}
+\end{equation}
+
+Finally, in the Appendix, \citep{luger15} derive expressions for the escape of H and O (also O in the atmosphere), and of the ocean itself:
+\begin{equation}
+    \Dot{m}_{\mathrm{H}}^\uparrow = \left(\frac{1}{1 + 8 \eta} \right) \Dot{M}_{\mathrm{EL}}
+\end{equation}
+
+\begin{equation}
+    \Dot{m}_{\mathrm{O}}^\uparrow = \left(\frac{8 \eta}{1 + 8 \eta} \right) \Dot{M}_{\mathrm{EL}}
+\end{equation}
+
+\begin{equation}
+    \Dot{m}_{\mathrm{O}}^{\mathrm{atm}} = \left(\frac{8 - 8 \eta}{1 + 8 \eta} \right) \Dot{M}_{\mathrm{EL}}
+\end{equation}
+
+\begin{equation}
+    \Dot{m}_{\mathrm{ocean}} = \left(\frac{9}{1 + 8 \eta} \right) \Dot{M}_{\mathrm{EL}}
+\end{equation}
+
+\citep{manabe67} Equation 2 gives the relative humidity $h$ as a function of altitude/pressure (defining some realistic surface values):
+\begin{equation}
+    h = h_{\mathrm{surf}} \left( \frac{(P/P_{\mathrm{surf}}) - 0.02}{1-0.02} \right)
+\end{equation}
+\citep{manabe67} Equation 3 gives the mixing ratio $r(T,h)$ as
+\begin{equation}
+    r(T,h) = \left( \frac{0.622 h e_{\mathrm{s}}(T)}{P - h e_{\mathrm{s}}(T)} \right)
+\end{equation}
+where $e_{\mathrm{s}}(T)$ is the saturation vapour pressure of water as a function of temperature. The minimum value is taken as $r_{\mathrm{min}} = 3 \times 10^{-6}$ g g$^{-1}$, which is roughly the mixing ratio for the very dry stratosphere. {\bf As noted by \citep{kasting88}, however, this vertical relative humidity only works if the stratosphere is implicitly very dry like Earth. Maybe it's best for our model to just assume a saturated troposphere/tropopause?? (As noted by \citep{kasting88}, this is a reasonable choice for atmospheres dominated by water vapour.} \\
+
+\citep{nakajima92} (also applied by \citep{hara20} to Venus) present a 1-D atmosphere model (non-scattering \& grey, i.e., absorption coeff. not $\lambda$-integrated), using a fixed relative humidity $h=1$ (although $h$ only included in a single equation; below), and an isothermal stratosphere. They present an equation for optical depth at the tropopause $\tau_{\mathrm{tp}}$ as a function of the temperature there, $T_{\mathrm{tp}}$:
+\begin{equation}
+    \tau_{\mathrm{tp}} = \kappa_v h P^*(T_{\mathrm{tp}}) \frac{1}{g} \frac{m_v}{\bar{m}}
+\end{equation}
+where subscript $v$ corresponds to the condensable; $\kappa_v$ is the absorption coefficient, $m_v$ is molecular weight, and $\bar{m}$ is the average molecular weight.
+
+For comparison, from climate physics, the optical depth (at a given wavelength; i.e., {\bf non-grey}) is,
+\begin{equation}
+    \tau_\lambda = \int n \sigma_\lambda ds = \int \rho \kappa_\lambda ds
+\end{equation}
+where $\sigma_\lambda$ is the cross-section at $\lambda$ and $\kappa_\lambda$ is the absorption coefficient at $\lambda$. However, can integrate over lambda (already shown above). 
+
+\citet{nakajima92} also define a moist pseudoadiabatic lapse rate for the troposphere {\bf (which is quite similar to the moist adiabat derived in Equation (2.33) of \citep{pierrehumbert10}}):
+\begin{equation}
+    \left( \frac{\partial T}{\partial P} \right) = \frac{ \frac{RT}{P c_{p,n}} + \frac{x_v^*}{x_n} \frac{l}{P c_{p,n}}}{x_n + x_v^* \frac{c_{p,v}}{c_{p,n}} + \frac{x_v^*}{x_n} \frac{l^2}{R T^2 c_{p,n}}}
+\end{equation}
+where subscript $n$ corresponds to the non-condensable; $x_v^* = P^*(T)/P$ and $x_n$ are the mole fractions of the condensable and non-condensable, respectively; and $c_{p,v}$ and $c_{p,n}$ are the specific heat at constant pressure for the condensable and non-condensable components (see \citep{nakajima92} Table 2 for values used). \\ 
+
+\citep{robinson12} provide an analytic 1D {\bf grey} atmosphere, with two shortwave channels (to account for stratospheric temperature inversion). Their equation (6) gives the grey $\tau$ as a function of $P$, and equation (10) gives the $T$-$P$ profile of the troposphere, {\bf including latent heat release of volatiles}:
+\begin{equation}
+    \tau = \tau_0 \left( \frac{P}{P_0} \right)^n
+\end{equation}
+where $n$ is between 1 and 2, {\bf but higher values have been proposed for water vapour in Earth's lower troposphere.}
+\begin{equation}
+    T = T_0 \left( \frac{P}{P_0} \right)^{\alpha(\gamma-1)/\gamma}
+\end{equation}
+where $\alpha = 0.6-0.9$ (again accounting for latent heat release), and $\gamma = c_p/c_v$. {\bf The authors note, however, that this structure breaks down for the very moist case, which may be a problem for us.} \\
+
+\citep{barth20} look at the evolution of the TRAPPIST-1 planets during the magma ocean phase, and provide the following equation for optical depth for a given species, $i$, 
+\begin{equation}
+    \tau_i^* = \left(\frac{3 M_i^{atm}}{8 \pi R^2} \right) \left(\frac{k_0 g}{3 P_0} \right)
+\end{equation}
+where $k_{0,H2O} = 0.01$ m$^2$/kg for water at reference pressure $P_0 = 101 325$ Pa (Elkins-Tanton 2008). \\
+
+\subsection{Convective Overshoot}
+
+Need to get water into the stratosphere, using parameterized ``convective overshoot''. Once water is in the stratosphere, it is transported vertically by diffusion -- {\bf escape will be diffusion-limited if you can't get enough water to the exobase, energy-limited otherwise.} 
+
+Brewer-Dobson Circulation (BDC): slow rising air in the deep tropics, sinking at high latitudes. This is controlled by cold trap temperature, $T_{\mathrm{cold}}$ -- {\bf parameterize using $T_{\mathrm{cold}}$}. Evaporation sets the difference between water going into stratosphere and how much is coming back down; this {\bf difference} is how much water stays in stratosphere. {\bf Parameterize this difference; to first-order, assume saturation at cold trap. This will set the background stratospheric water amount.} 
+
+Convective overshoot is higher order than this background; it can penetrate the cold trap, although (as mentioned by Yi Huang) this is difficult to quantify today. {\bf Parameterize convective overshoot as a function of $T_{\mathrm{surf}}$, since tropospheric convection depends on $T_{\mathrm{surf}}$. Could be done as a piecewise-defined power law, for the cool case vs. hot case, and could convert relative humidity into absolute water amount if $T_{\mathrm{skin}}$ is high enough.}
+
+\section{1-D Atmosphere Model Figures} \label{sec:figs}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.5\textwidth]{2Box_CyclingCartoon_Atmosphere.pdf}
+\caption{Box model of water cycling between surface and mantle reservoirs on Earth, adapted from \citet{cowan14} to include both a 1-D atmosphere and water loss to space (bolded). Water is degassed from the mantle to the surface through mid-ocean ridge volcanism, and regassed from the surface to the mantle through subduction of hydrated basaltic oceanic crust. Water diffuses vertically through the atmosphere, becoming dissociated into its constituents above the homopause, and able to be lost to space above the exobase. The loss of water is driven by XUV radiation from the host M dwarf, which decreases roughly exponentially with time \citep{luger15}. However, as an improvement over our previous model iteration \citep{moore20}, we use models for the bolometric luminosity \citep{baraffe15} and XUV luminosity \citep{ribas05} to calculate the atmospheric structure and, by extension, the atmospheric loss rates.}
+\label{fig:boxmodel}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.9\textwidth]{Escape_Limits_Figure.pdf}
+\caption{Two limits for the escape of water (effectively H atoms) to space, as defined by \citet{luger15} for a planet in a runaway greenhouse. In the energy-limited escape regime (left), all available incoming XUV energy goes into driving the loss of water to space; {\bf we follow this while our planet is in runaway ($T_{\mathrm{surf}} > 647$ K.)}. In the diffusion-limited escape regime (right), the loss of water to space is limited by its vertical diffusion in the atmosphere, here through a background oxygen atmosphere; {\bf we follow this when $T_{\mathrm{surf}}$ cools below the runaway limit.} \citet{luger15} assume that loss only occurs during runaway greenhouse, and no loss otherwise; by doing so, the authors avoid the vertical mixing ratio of water throughout the atmosphere. We seek to instead model a 1-D atmosphere, both to make the model more general, and to calculate the water vertical mixing ratio at each timestep, the latter of which will be especially important for diffusion-limited escape.} 
+\label{fig:escapelimits}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.5\textwidth]{MultipleRelativeHumidityProfiles.pdf}
+\caption{Vertical relative humidity profiles (dependent on mixing ratio and saturation vapour pressure), using the parameterization of \citet{kasting86} and various values of $r_0$, calculated from a 1-D atmosphere $T$-$P$ profile. Note that this parameterization uses current properties of the Earth's atmosphere, and is only valid in the troposphere; {\bf as such, we (currently) simply take the tropopause value of $P_{\mathrm{strat}}$ to calculate above the tropopause (BUT we will calculate using a constant MIXING RATIO above the tropopause.)}}
+\label{fig:RHprofiles}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.9\textwidth]{FourPanel_1DAtmosphere.pdf}
+\caption{An example calculation ({\bf note: using $m_{\mathrm{air}}$ for scale height and other molecular weight-required calculations} of a 1-D $T$-$P$ (here, $T$-$z$) profile and various water-related parameters, on the way to calculating the water loss above the exobase (not shown). We assume a fixed surface pressure of $P_{\mathrm{surf}} = 1$ bar, for now. Each parameter is plotted as a function of altitude, $z$. From left to right: (a) the atmospheric temperature, $T$, calculated using a dry adiabatic troposphere and isothermal stratosphere, given $T_{\mathrm{eff}}$ calculated using the bolometric luminosity, $L_{\mathrm{bol}}$, of the host M dwarf \citep{baraffe15}, and assuming an orbital distance and albedo for the M-Earth; (b) the saturation vapour pressure of water, $P_{\mathrm{sat, H_{2}O}}$, calculated using the vertical temperature profile (\citealt{nakajima92}, denoted by $P^*(T)$ in their paper); (c) relative humidity, ${\mathrm{RH}}$, calculated using the parameterization of \citet{kasting86} and assuming $r_0 = 0.8$; and (d) partial pressure of water, $P_{\mathrm{H_{2}O}}$, determined by multiplying panels (b) and (c) together. Given the partial pressure, we then take a constant mixing ratio from the tropopause to homopause, above which the water molecules will be photodissociated, and the constituents will have their own scale heights ($H_{\mathrm{H}}$ and $H_{\mathrm{O}}$ up to the exobase. We can then calculate how much water is above the exobase and available to escape, and then calculate the loss rate of water to space in either the energy-limited or diffusion-limited escape regime.} 
+\label{fig:4panelprofile}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{FourPanel_1DAtmosphere_BAD.pdf}
+\caption{{\bf PROBLEM!!! IF THE SURFACE TEMPERATURE IS TOO HIGH (SEEMS TO BE EVEN IN UPPER 300 K REGION) FOR A PURE H2O ATMOSPHERE, THE CALCULATED RELATIVE HUMIDITY BECOMES $>1$, AND THE SATURATION VAPOUR PRESSURE BECOMES $>1$ BAR!!!} Possible solution from \citet{pierrehumbert10}: {\bf When $T_{\mathrm{skin}} > 273$ K, moist greenhouse onset -- we can assume this is the same limit as the runaway greenhouse limit.}}
+\label{fig:bad4panel}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.5\textwidth]{Tsurf_EscapeRates_OverTime.pdf}
+\caption{Evolution of the surface temperature, $T_{\mathrm{surf}}$ (top panel), and escape rate limits and actual loss to space based on $T_{\mathrm{surf}}$ (bottom panel), over time, $t$. The planet begins in a runaway greenhouse (top), and as such, the escape of water to space will initially be energy-limited (bottom); once the planet cools below the runaway greenhouse threshold, the escape is instead diffusion-limited. Significant loss occurs early, but for a short period of time; the planet is only in a runaway greenhouse for $<3$ Myr of the $4.5$ Gyr simulation. Assumptions, mostly from \citet{luger15}: $X_{\mathrm{O}}/X_{\mathrm{H}} = 1/2$ (DL), thermospheric temperature is ALWAYS 400 K (DL), pure H2O/H+O atmosphere (both), $P_{\mathrm{surf}} = 1$ bar (both; CAN CALCULATE THIS SELF-CONSISTENTLY LATER), $R_{\mathrm{XUV}} = R_{mathrm{p}}$ (EL), escape efficiency = 0.15 (EL). }
+\label{fig:Tsurf_escaperates}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.5\textwidth]{Param_space_hyb_model_cycling_extremeloss_2panel.pdf}
+\caption{PLACEHOLDER: We'll need something equivalent to this once the cycling + 1-D atmosphere code runs, also including the atmospheric reservoir capacity in the top panel (or some inset panel/another panel, if this value is substantially smaller than the water in the other reservoirs, which is likely during most of the simulation when the planet isn't in a runaway greennhouse.}
+\label{fig:cyclingovertime}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.8\textwidth]{Grid_Parameter_Search_hyb_Wloss_tloss_surfacewater.pdf}
+\caption{PLACEHOLDER: Another good plot to recreate with the new model -- might need to reconsider the colouring based on "surface water regimes" and instead colour based on, e.g., $T_{\mathrm{surf}}$ or mixing ratio or something}
+\label{fig:resultsgrid}
+\end{figure}
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\textwidth]{XXXX.pdf}
+%\caption{XXXX}
+%\label{fig:XXXX}
+%\end{figure}
+
+\section{Geophysics Things to Note (later?)}
+
+\begin{itemize}
+    \item Oxygen fugacity of mantle controls outgassing \citep{dehant19}; Earth's mantle is oxidized
+    \item \citep{spaargaren20}: steady state for stagnant lid state = most volatiles in atmosphere
+    \item \citep{spaargaren20}: plate tectonics can be influenced by mantle temperature, rock hydration, planet size, rheology, mantle viscosity + bulk composition, surface temperature (too hot = stagnant lid)
+\end{itemize}
+
+\acknowledgments
+
+Thank you to XXXXX....
+
+%\facilities{}
+
+\software{astropy (REF)}
+
+%\appendix
+
+\begin{thebibliography}{}
+
+\bibitem[Abe et al.(2011)]{abe11} Abe, Y., Abe-Ouchi, A, Sleep, N.~H., \& Zahnle, K.~J. 2011, Astrobiology, 11, 443
+
+\bibitem[Baraffe et al.(2015)]{baraffe15} Baraffe, I., Homeier, D., Allard, F., \& Chabrier, G. 2015, \aap, 577, A42
+
+\bibitem[Barth et al.(2020)]{barth20} Barth, P., Carone, L., Barnes, R., Noack, L., Molli\`{e}re, P., \& Henning, T. 2020, arXiv e-prints, 2008.09599
+
+\bibitem[Bolmont et al.(2016)]{bolmont16} Bolmont, E., Selsis, F., Owen, J.~E., Ribas, I., Raymond, S.~N., Leconte, J., \& Gillon, M. 2016, \mnras, 464, 3728
+
+\bibitem[Cowan \& Abbot(2014)]{cowan14} Cowan, N.~B., \& Abbot, D.~S. 2014, \apj, 781, 27
+
+\bibitem[Dehant et al.(2019)]{dehant19} Dehant, V., Debaille, V., Dobos, V., Gaillard, F., et al. 2019, \ssr, 215, 42
+
+\bibitem[Fleming et al.(2020)]{fleming20} Fleming, D.~P., Barnes, R., Luger, R., VanderPlas, J.~T. 2020, \apj, 891, 155
+
+\bibitem[Hara \& Suzuki(2020)]{hara20} Hara, T., \& Suzuki, A. 2020, arXiv e-prints, 2009.04040
+
+\bibitem[Howe et al.(2020)]{howe20} Howe, A.~R., Adams, F.~C., \& Meyer, M~.R. 2020, arxiv e-prints, arXiv:1912.08820v4
+
+\bibitem[Kasting \& Ackerman(1986)]{kasting86} Kasting J.~F., \& Ackerman T.~P., 1986, Sci, 234, 1383. doi:10.1126/science.234.4782.1383
+
+\bibitem[Kasting(1988)]{kasting88} Kasting, J.~F. 1988, Icarus, 74, 472
+
+\bibitem[King \& Wheatley(2020)]{king20} King, G.~W., \& Wheatley, P.~J. 2020, arXiv e-prints, 2007.13731
+
+\bibitem[Leconte et al.(2013)]{leconte13} Leconte, J., Forget, F., Charnay, B., Wordsworth, R., Selsis, F., Millour, E., \& Spiga, A. 2013, \aap. 554, A69
+
+\bibitem[Luger \& Barnes(2015)]{luger15} Luger, R., \& Barnes, R. 2015, Astrobiology, 15, 119
+
+\bibitem[Manabe \& Strickler(1964)]{manabe64} Manabe, S., \& Strickler, R.~F. 1964, Journal of Atmospheric Sciences, 21, 361
+
+\bibitem[Manabe \& Wetherald(1967)]{manabe67} Manabe, S., \& Wetherald, R.~T. 1967, Journal of Atmospheric Sciences, 24, 241
+
+\bibitem[Melbourne et al.(2020)]{melbourne20} Melbourne, K., Youngblood, A., France, K., Froning, C.~S., et al. 2020, arXiv e-prints, 2009.07869
+
+\bibitem[Moore \& Cowan(2020)]{moore20} Moore, K., \& Cowan, N.~B. 2020, \mnras, 496, 3786
+
+\bibitem[Nakajima et al.(1992)]{nakajima92} Nakajima, S., Hayashi, Y.-Y., \& Abe, Y.\ 1992, Journal of Atmospheric Sciences, 49, 2256
+
+\bibitem[Pierrehumbert(2010)]{pierrehumbert10} Pierrehumbert, R.~T.\ 2010, Principles of Planetary Climate, by R.~T.  Pierrehumbert.  Cambridge, UK: Cambridge University Press. ISBN: 9780521865562, 2010
+
+\bibitem[Raymond et al.(2004)]{raymond04} Raymond, S.~N., Quinn, T., \& Lunine, J.~I. 2004, \icarus, 168, 1
+
+\bibitem[Ribas et al.(2005)]{ribas05} Ribas, I., Guinan, E.~F., G{\"u}del, M., \& Audard, M. 2005, ApJ, 622, 680
+
+\bibitem[Ribas et al.(2016)]{ribas16} Ribas, I., Bolmont, E., Selsis, F., Reiners, A., Leconte, J., Raymond, S.~N., et al. 2016, \aap, 596, A111
+
+\bibitem[Ribas et al.(2017)]{ribas17} Ribas, I., Gregg, M.~D., Boyajian, T.~S., \& Bolmont, E. 2017, \aap, 603, A58
+
+\bibitem[Robinson \& Catling(2012)]{robinson12} Robinson, T.~D., \& Catling, D.~C. 2012, \apj, 757, 104
+
+\bibitem[Spaargaren et al.(2020)]{spaargaren20} Spaargaren, R.~J., Ballmer, M.~D., Bower, D.~J., Dorn, C., \& Tackley, P.~J. 2020, arXiv e-prints, 2007.09021
+
+\bibitem[Tosi et al.(2017)]{tosi17} Tosi, N., Godolt, M., Stracke, B., Ruedas, T., et al. 2017, \aap, 605, A71
+
+\end{thebibliography}
+
+\end{document}
